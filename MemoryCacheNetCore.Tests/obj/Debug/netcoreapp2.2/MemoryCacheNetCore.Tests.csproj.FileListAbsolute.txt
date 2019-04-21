@@ -1,0 +1,17 @@
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.deps.json
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.runtimeconfig.json
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.runtimeconfig.dev.json
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.pdb
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.pdb
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.csprojAssemblyReference.cache
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.csproj.CoreCompileInputs.cache
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.AssemblyInfoInputs.cache
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.AssemblyInfo.cs
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.csproj.CopyComplete
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore.Tests\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.Tests.pdb

@@ -1,0 +1,15 @@
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.deps.json
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.dll
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.csprojAssemblyReference.cache
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.csproj.CoreCompileInputs.cache
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.AssemblyInfoInputs.cache
+C:\Users\AymenTROUDI\source\repos\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.AssemblyInfo.cs
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.deps.json
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\bin\Debug\netcoreapp2.2\MemoryCacheNetCore.pdb
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.csproj.CoreCompileInputs.cache
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.AssemblyInfoInputs.cache
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.AssemblyInfo.cs
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.dll
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.pdb
+C:\Users\AymenTROUDI\source\repos\_home\MemoryCacheNetCore\MemoryCacheNetCore\obj\Debug\netcoreapp2.2\MemoryCacheNetCore.csprojAssemblyReference.cache
