@@ -11,7 +11,6 @@ namespace MemoryCacheNetCore
         private readonly MemoryCache _cache;
         private readonly int _cacheDurationInSeconds;
         private static CancellationTokenSource _flushCacheToken = new();
-        private static readonly SemaphoreSlim SemaphoreSlim = new(1, 1);
 
         public int Size => _cache.Count;
 
@@ -23,50 +22,36 @@ namespace MemoryCacheNetCore
 
         public async Task<T> AddOrGetAsync<T>(string key, Func<Task<T>> func)
         {
+            var newValue = new Lazy<Task<T>>(func);
+            var oldValue = _cache.GetOrCreate(key, entry =>
+            {
+                entry.AbsoluteExpiration = DateTimeOffset.UtcNow.AddSeconds(_cacheDurationInSeconds);
+                entry.AddExpirationToken(new CancellationChangeToken(_flushCacheToken.Token));
+                entry.RegisterPostEvictionCallback(EvictionCallback);
+                return newValue;
+            });
             try
             {
-                await SemaphoreSlim.WaitAsync();
-                var newValue = new Lazy<Task<T>>(func);
-                var oldValue = _cache.GetOrCreate(key, entry =>
-                {
-                    entry.AbsoluteExpiration = DateTimeOffset.UtcNow.AddSeconds(_cacheDurationInSeconds);
-                    entry.AddExpirationToken(new CancellationChangeToken(_flushCacheToken.Token));
-                    entry.RegisterPostEvictionCallback(EvictionCallback);
-                    return newValue;
-                });
-                try
-                {
-                    return await (oldValue ?? newValue).Value;
-                }
-                catch
-                {
-                    _cache.Remove(key);
-                    throw;
-                }
+                return await (oldValue ?? newValue).Value;
             }
-            finally
+            catch
             {
-                SemaphoreSlim.Release();
+                _cache.Remove(key);
+                throw;
             }
         }
 
-        public async Task ClearCacheEntriesAsync()
+        public Task ClearCacheEntriesAsync()
         {
-            if (!CanCancelToken(_flushCacheToken)) return;
-
-            try
+            if (CanCancelToken(_flushCacheToken))
             {
-                await SemaphoreSlim.WaitAsync();
                 _flushCacheToken.Cancel();
                 _flushCacheToken.Dispose();
                 _flushCacheToken = new CancellationTokenSource();
             }
-            finally
-            {
-                SemaphoreSlim.Release();
-            }
 
             Console.WriteLine("Flushing cache");
+            return Task.CompletedTask;
         }
 
         public void Dispose()
