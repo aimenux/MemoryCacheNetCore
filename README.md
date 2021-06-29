@@ -1,3 +1,5 @@
+[![.NET 5](https://github.com/aimenux/MemoryCacheNetCore/actions/workflows/ci.yml/badge.svg)](https://github.com/aimenux/MemoryCacheNetCore/actions/workflows/ci.yml)
+
 # MemoryCacheNetCore
 ```
 MemoryCache Wrapper (Net Core)
