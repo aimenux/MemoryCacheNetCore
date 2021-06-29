@@ -6,34 +6,30 @@ using Microsoft.Extensions.Primitives;
 
 namespace MemoryCacheNetCore
 {
-    public sealed class InMemoryCache : IDisposable
+    public sealed class InMemoryCache : IInMemoryCache, IDisposable
     {
         private readonly MemoryCache _cache;
-        private const int CacheSecondsDuration = 5;
-        private static readonly ReaderWriterLockSlim Locker = new ReaderWriterLockSlim();
-        private static CancellationTokenSource _flushCacheToken = new CancellationTokenSource();
+        private readonly int _cacheDurationInSeconds;
+        private static CancellationTokenSource _flushCacheToken = new();
+        private static readonly SemaphoreSlim SemaphoreSlim = new(1, 1);
 
-        public InMemoryCache()
+        public int Size => _cache.Count;
+
+        public InMemoryCache(int cacheDurationInSeconds)
         {
+            _cacheDurationInSeconds = cacheDurationInSeconds;
             _cache = new MemoryCache(new MemoryCacheOptions());
         }
 
-        public Task<T> AddOrGetAsync<T>(string key, Func<Task<T>> func)
+        public async Task<T> AddOrGetAsync<T>(string key, Func<Task<T>> func)
         {
-            var expiration = DateTimeOffset.UtcNow.AddSeconds(CacheSecondsDuration);
-            return AddOrGetAsync(key, func, expiration);
-        }
-
-        public async Task<T> AddOrGetAsync<T>(string key, Func<Task<T>> func, DateTimeOffset expiration)
-        {
-            Locker.EnterReadLock();
-
             try
             {
+                await SemaphoreSlim.WaitAsync();
                 var newValue = new Lazy<Task<T>>(func);
                 var oldValue = _cache.GetOrCreate(key, entry =>
                 {
-                    entry.AbsoluteExpiration = expiration;
+                    entry.AbsoluteExpiration = DateTimeOffset.UtcNow.AddSeconds(_cacheDurationInSeconds);
                     entry.AddExpirationToken(new CancellationChangeToken(_flushCacheToken.Token));
                     entry.RegisterPostEvictionCallback(EvictionCallback);
                     return newValue;
@@ -50,25 +46,24 @@ namespace MemoryCacheNetCore
             }
             finally
             {
-                Locker.ExitReadLock();
+                SemaphoreSlim.Release();
             }
         }
 
-        public void ClearCacheEntries()
+        public async Task ClearCacheEntriesAsync()
         {
             if (!CanCancelToken(_flushCacheToken)) return;
 
-            Locker.EnterWriteLock();
-
             try
             {
+                await SemaphoreSlim.WaitAsync();
                 _flushCacheToken.Cancel();
                 _flushCacheToken.Dispose();
                 _flushCacheToken = new CancellationTokenSource();
             }
             finally
             {
-                Locker.ExitWriteLock();
+                SemaphoreSlim.Release();
             }
 
             Console.WriteLine("Flushing cache");
