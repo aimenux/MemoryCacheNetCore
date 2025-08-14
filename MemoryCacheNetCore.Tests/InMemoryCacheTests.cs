@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
+using AwesomeAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MemoryCacheNetCore.Tests
@@ -16,7 +16,7 @@ namespace MemoryCacheNetCore.Tests
         private const int MoreThanCacheDurationInSeconds = 3;
         private static readonly Random Random = new(Guid.NewGuid().GetHashCode());
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Get_Old_Value_When_Delay_Is_Not_Expired()
         {
             var cache = new InMemoryCache(CacheDurationInSeconds);
@@ -40,7 +40,7 @@ namespace MemoryCacheNetCore.Tests
             yy.Should().Be(10);
         }
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Get_New_Value_When_Delay_Is_Expired()
         {
             var cache = new InMemoryCache(CacheDurationInSeconds);
@@ -66,7 +66,7 @@ namespace MemoryCacheNetCore.Tests
             yy.Should().Be(20);
         }
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Get_New_Value_When_Delay_Is_Not_Expired_And_Cache_Was_Flushed()
         {
             var cache = new InMemoryCache(CacheDurationInSeconds);
@@ -92,7 +92,7 @@ namespace MemoryCacheNetCore.Tests
             yy.Should().Be(20);
         }
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Should_Not_Throw_Exception_When_Cache_Is_Flushed_While_Is_Used_V1()
         {
             try
@@ -105,7 +105,7 @@ namespace MemoryCacheNetCore.Tests
             }
         }
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Should_Not_Throw_Exception_When_Cache_Is_Flushed_While_Is_Used_V2()
         {
             var cache = new InMemoryCache(CacheDurationInSeconds);
@@ -144,7 +144,7 @@ namespace MemoryCacheNetCore.Tests
             cache.Size.Should().BeGreaterThan(0);
         }
 
-        [TestMethod, Timeout(Timeout)]
+        [TestMethod, Timeout(Timeout, CooperativeCancellation = true)]
         public async Task Should_Not_Throw_Exception_When_Cache_Is_Flushed_While_Is_Used_V3()
         {
             var cache = new InMemoryCache(CacheDurationInSeconds);

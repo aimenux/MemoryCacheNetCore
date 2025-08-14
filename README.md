@@ -13,4 +13,4 @@ In this demo, i m proposing a MemoryCache wrapper in order to :
 > :writing_hand: `Clear Keys/Entries`
 >
 
-**`Tools`** : vs19, net 5.0
+**`Tools`** : net 9.0
